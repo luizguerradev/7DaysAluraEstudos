@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de média</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="page-title">
+            Calculadora de média</h1>
+        <p class="page-subtitle">
+            Descubra qual a sua média das provas!
+        </p>
+
+    </div>
+    <div>
+        <label for="notas">Insira as notas</label><br>
+
+        <input type="text" id="nome" placeholder="Qual seu nome?" /><br>
+        <input type="number" id="notaDoPrimeiroBimestre" size="2" placeholder="Nota do primeiro bimestre: " /><br>
+        <input type="number" id="notaDoSegundoBimestre" size="2" placeholder="Nota do segundo bimestre: " /><br>
+        <input type="number" id="notaDoTerceiroBimestre" size="2" placeholder="Nota do terceiro bimestre: " /><br>
+        <input type="number" id="notaDoQuartoBimestre" size="2" placeholder="Nota do quarto bimestre: " /><br>
+        <button type="submit" onclick="Media()">CALCULAR</button>
+        <h2 id="resultadoAluno"></h2>
+    </div>
+    <script>
+        function Media() {
+            var inputNome = document.getElementById('nome')
+            var nome = inputNome.value
+
+            var inputNotaDoPrimeiroBimestre = document.getElementById('notaDoPrimeiroBimestre')
+            var notaDoPrimeiroBimestre = inputNotaDoPrimeiroBimestre.value
+            var nota1Bimestre = parseFloat(notaDoPrimeiroBimestre)
+
+            var inputNotaDoSegundoBimestre = document.getElementById('notaDoSegundoBimestre')
+            var notaDoSegundoBimestre = inputNotaDoSegundoBimestre.value
+            var nota2Bimestre = parseFloat(notaDoSegundoBimestre)
+
+            var inputNotaDoTerceiroBimestre = document.getElementById('notaDoTerceiroBimestre')
+            var notaDoTerceiroBimestre = inputNotaDoTerceiroBimestre.value
+            var nota3Bimestre = parseFloat(notaDoTerceiroBimestre)
+
+            var inputNotaDoQuartoBimestre = document.getElementById('notaDoQuartoBimestre')
+            var notaDoQuartoBimestre = inputNotaDoQuartoBimestre.value
+            var nota4Bimestre = parseFloat(notaDoQuartoBimestre)
+
+            var media = (nota1Bimestre + nota2Bimestre + nota3Bimestre + nota4Bimestre) / 4
+            var notaFinal = media >= 7 && nota4Bimestre >= 6 ? "Aprovado" : "Reprovado"
+
+            var elementoResultadoAluno = document.getElementById('resultadoAluno')
+            //var resultadoAluno = " O aluno " + nome + " com media " + notaFinal + " foi " + media + "!"
+            var resultadoAluno = `O aluno ${nome} com média ${media} foi ${notaFinal}`
+            elementoResultadoAluno.innerHTML = resultadoAluno
+
+
+        }
+
+
+
+        
+    </script>
+
+</body>
